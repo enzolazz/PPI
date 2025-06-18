@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro - Clínica ABC Health</title>
+  </head>
+  <body>
+    <form action="" method="post">
+      <h1>Cadastro de Paciente</h1>
+
+      <fieldset>
+        <legend>Informações Pessoais</legend>
+        <p>
+          <label>Nome: </label>
+          <input type="text" name="userName" required>
+        </p>
+        <p>
+          <label>E-mail: </label>
+          <input type="email" name="userEmail" required>
+        </p>
+        <p>
+          <label>CPF: </label>
+          <input type="text" name="userCPF" required>
+        </p>
+        <p>
+          <label>Idade: </label>
+          <input type="number" name="userAge" required>
+        </p>
+        <p>
+          <label>Telefone: </label>
+          <input type="tel" name="userCel" required>
+        </p>
+        <p>
+          <label>Data de nascimento: </label>
+          <input type="date" name="userBirth">
+        </p>
+
+        <p>
+          <label
+            >Sexo:
+            <select name="userSex">
+              <option value="" disabled selected>Selecione</option>
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+            </select>
+          </label>
+        </p>
+
+        <p>Estado Civil</p>
+        <div>
+          <input type="radio" name="maritalStatus" value="solteiro">
+          <label for="solteiro">Solteiro</label>
+        </div>
+
+        <div>
+          <input type="radio" name="maritalStatus" value="casado">
+          <label for="casado">Casado</label>
+        </div>
+
+        <div>
+          <input type="radio" name="maritalStatus" value="divorciado">
+          <label for="divorciado">Divorciado</label>
+        </div>
+
+        <div>
+          <input type="radio" name="maritalStatus" value="viuvo">
+          <label for="Viúvo">Viúvo</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Endereço</legend>
+
+        <p>
+          <label>CEP: </label>
+          <input type="text" name="userCEP" required>
+        </p>
+
+        <label>Tipo de logradouro:</label>
+        <div>
+          <input type="checkbox" name="streetAddr[]" value="rua">
+          <label for="rua">Rua</label>
+        </div>
+
+        <div>
+          <input type="checkbox" name="streetAddr[]" value="avenida">
+          <label for="avenida">Avenida</label>
+        </div>
+
+        <div>
+          <input type="checkbox" name="streetAddr[]" value="praca">
+          <label for="praca">Praça</label>
+        </div>
+
+        <div>
+          <input type="checkbox" name="streetAddr[]" value="jardim">
+          <label for="jardim">Jardim</label>
+        </div>
+
+        <div>
+          <input type="checkbox" name="streetAddr[]" value="alameda">
+          <label for="alameda">Alameda</label>
+        </div>
+
+        <p>
+          <label>Logradouro: </label>
+          <input type="text" name="userStreet" required>
+        </p>
+
+        <p>
+          <label>Bairro: </label>
+          <input type="text" name="userNeighbor" required>
+        </p>
+        <p>
+          <label>Cidade: </label>
+          <input type="text" name="userCity" required>
+        </p>
+        <p>
+          <label>Estado: </label>
+          <input type="text" name="userState" required>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Informações Opcionais</legend>
+
+        <p>
+          <label>Filmes favoritos:</label><br>
+          <input type="checkbox" name="userMovies[]" value="Matrix"> Matrix<br>
+          <input type="checkbox" name="userMovies[]" value="O Senhor dos Anéis">
+          O Senhor dos Anéis<br>
+          <input type="checkbox" name="userMovies[]" value="Harry Potter"> Harry
+          Potter<br>
+          <input type="checkbox" name="userMovies[]" value="Interestelar">
+          Interestelar<br>
+        </p>
+
+        <p>
+          <label>Informática:</label><br>
+          <input type="checkbox" name="userIT[]" value="Python"> Python<br>
+          <input type="checkbox" name="userIT[]" value="Redes"> Redes<br>
+          <input type="checkbox" name="userIT[]" value="Hardware"> Hardware<br>
+          <input type="checkbox" name="userIT[]" value="Segurança">
+          Segurança<br>
+        </p>
+
+        <p>
+          <label>Jogos favoritos:</label><br>
+          <input type="checkbox" name="userGames[]" value="Minecraft">
+          Minecraft<br>
+          <input type="checkbox" name="userGames[]" value="FIFA"> FIFA<br>
+          <input type="checkbox" name="userGames[]" value="Xadrez"> Xadrez<br>
+          <input type="checkbox" name="userGames[]" value="League of Legends">
+          Call of Duty<br>
+        </p>
+
+        <p>
+          <label>Livros favoritos:</label><br>
+          <input type="checkbox" name="userBooks[]" value="Dom Casmurro"> Dom
+          Casmurro<br>
+          <input type="checkbox" name="userBooks[]" value="Harry Potter"> Harry
+          Potter<br>
+          <input type="checkbox" name="userBooks[]" value="O Pequeno Príncipe">
+          O Pequeno Príncipe<br>
+          <input type="checkbox" name="userBooks[]" value="Senhor dos Anéis">
+          Senhor dos Anéis<br>
+        </p>
+
+        <p>
+          <label>Roupas preferidas:</label><br>
+          <input type="checkbox" name="userClothes[]" value="Camiseta">
+          Camiseta<br>
+          <input type="checkbox" name="userClothes[]" value="Jeans"> Jeans<br>
+          <input type="checkbox" name="userClothes[]" value="Vestido">
+          Vestido<br>
+          <input type="checkbox" name="userClothes[]" value="Jaqueta">
+          Jaqueta<br>
+        </p>
+
+        <p>
+          <label>Informações complementares:</label>
+          <textarea name="userExtra" rows="" cols=""></textarea>
+        </p>
+        <p>
+          <label>Enviar foto:</label>
+          <input
+            type="file"
+            name="userPhoto"
+            accept=".jpg,.jpeg,.png,.gif,image/jpeg,image/png,image/gif"
+          >
+        </p>
+      </fieldset>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </body>
+</html>
