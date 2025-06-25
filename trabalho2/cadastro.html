@@ -75,6 +75,7 @@
           <input
             type="text"
             name="userNationality"
+            id="userNationality"
             value="Brasileiro(a)"
             readonly
           >
@@ -82,28 +83,38 @@
 
         <p>
           <label for="userIncome" hidden>Renda: </label>
-          <input type="range" name="userIncome" hidden>
+          <input type="range" id="userIncome" name="userIncome" hidden>
         </p>
 
         <p>Estado Civil:</p>
         <div>
-          <input type="radio" name="maritalStatus" value="solteiro">
+          <input
+            type="radio"
+            name="maritalStatus"
+            id="solteiro"
+            value="solteiro"
+          >
           <label for="solteiro">Solteiro</label>
         </div>
 
         <div>
-          <input type="radio" name="maritalStatus" value="casado">
+          <input type="radio" name="maritalStatus" id="casado" value="casado">
           <label for="casado">Casado</label>
         </div>
 
         <div>
-          <input type="radio" name="maritalStatus" value="divorciado">
+          <input
+            type="radio"
+            name="maritalStatus"
+            id="divorciado"
+            value="divorciado"
+          >
           <label for="divorciado">Divorciado</label>
         </div>
 
         <div>
-          <input type="radio" name="maritalStatus" value="viuvo">
-          <label for="Viúvo">Viúvo</label>
+          <input type="radio" name="maritalStatus" id="viuvo" value="viuvo">
+          <label for="viuvo">Viúvo</label>
         </div>
       </fieldset>
 
@@ -152,129 +163,184 @@
       <fieldset>
         <legend>Informações Opcionais</legend>
 
-        <section>
+        <div>
           <p>Filmes favoritos:</p>
 
           <p>
-            <input type="checkbox" name="userMovies[]" value="matrix">
+            <input
+              type="checkbox"
+              name="userMovies[]"
+              id="matrix"
+              value="matrix"
+            >
             <label for="matrix">Matrix</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userMovies[]" value="lor">
+            <input type="checkbox" name="userMovies[]" id="lor" value="lor">
             <label for="lor">O Senhor dos Anéis</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userMovies[]" value="hp">
+            <input type="checkbox" name="userMovies[]" id="hp" value="hp">
             <label for="hp">Harry Potter</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userMovies[]" value="interestelar">
+            <input
+              type="checkbox"
+              name="userMovies[]"
+              id="interestelar"
+              value="interestelar"
+            >
             <label for="interestelar">Interestelar</label>
           </p>
-        </section>
+        </div>
 
-        <section>
+        <div>
           <p>Informática:</p>
 
           <p>
-            <input type="checkbox" name="userIT[]" value="py">
+            <input type="checkbox" name="userIT[]" id="py" value="py">
             <label for="py">Python</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userIT[]" value="ntw">
+            <input type="checkbox" name="userIT[]" id="ntw" value="ntw">
             <label for="ntw">Redes</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userIT[]" value="hw">
+            <input type="checkbox" name="userIT[]" id="hw" value="hw">
             <label for="hw">Hardware</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userIT[]" value="sec">
+            <input type="checkbox" name="userIT[]" id="sec" value="sec">
             <label for="sec">Segurança</label>
           </p>
-        </section>
+        </div>
 
-        <section>
+        <div>
           <p>Jogos favoritos:</p>
 
           <p>
-            <input type="checkbox" name="userGames[]" value="minecraft">
+            <input
+              type="checkbox"
+              name="userGames[]"
+              id="minecraft"
+              value="minecraft"
+            >
             <label for="minecraft">Minecraft</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userGames[]" value="fifa">
+            <input type="checkbox" name="userGames[]" id="fifa" value="fifa">
             <label for="fifa">FIFA</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userGames[]" value="chess">
+            <input type="checkbox" name="userGames[]" id="chess" value="chess">
             <label for="chess">Xadrez</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userGames[]" value="cod">
+            <input type="checkbox" name="userGames[]" id="cod" value="cod">
             <label for="cod">Call of Duty</label>
           </p>
-        </section>
+        </div>
 
-        <section>
+        <div>
           <p>Livros favoritos:</p>
 
           <p>
-            <input type="checkbox" name="userBooks[]" value="dcBook">
+            <input
+              type="checkbox"
+              name="userBooks[]"
+              id="dcBook"
+              value="dcBook"
+            >
             <label for="dcBook">Dom Casmurro</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userBooks[]" value="hpBook">
+            <input
+              type="checkbox"
+              name="userBooks[]"
+              id="hpBook"
+              value="hpBook"
+            >
             <label for="hpBook">Harry Potter</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userBooks[]" value="lpBook">
+            <input
+              type="checkbox"
+              name="userBooks[]"
+              id="lpBook"
+              value="lpBook"
+            >
             <label for="lpBook">O Pequeno Príncipe</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userBooks[]" value="interestelar">
-            <label for="interestelar">Interestelar</label>
+            <input
+              type="checkbox"
+              name="userBooks[]"
+              id="interestelarBook"
+              value="interestelarBook"
+            >
+            <label for="interestelarBook">Interestelar</label>
           </p>
-        </section>
+        </div>
 
-        <section>
+        <div>
           <p>Roupas preferidas:</p>
 
           <p>
-            <input type="checkbox" name="userClothes[]" value="shirt">
+            <input
+              type="checkbox"
+              name="userClothes[]"
+              id="shirt"
+              value="shirt"
+            >
             <label for="shirt">Camiseta</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userClothes[]" value="jeans">
+            <input
+              type="checkbox"
+              name="userClothes[]"
+              id="jeans"
+              value="jeans"
+            >
             <label for="jeans">Jeans</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userClothes[]" value="dress">
+            <input
+              type="checkbox"
+              name="userClothes[]"
+              id="dress"
+              value="dress"
+            >
             <label for="dress">Vestido</label>
           </p>
 
           <p>
-            <input type="checkbox" name="userClothes[]" value="sweater">
+            <input
+              type="checkbox"
+              name="userClothes[]"
+              id="sweater"
+              value="sweater"
+            >
             <label for="sweater">Jaqueta</label>
           </p>
-        </section>
+        </div>
 
         <p>
           <label>Informações complementares:</label>
-          <textarea name="userExtra" rows="" cols=""></textarea>
+          <textarea name="userExtra"></textarea>
         </p>
         <p>
           <label>Enviar foto:</label>
