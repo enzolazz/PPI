@@ -1,4 +1,5 @@
 fieldset {
+  background-color: rgba(255, 255, 240, 0.7);
   border: 2px solid #aa9;
   border-radius: 10px;
   padding: 1rem;
@@ -9,4 +10,72 @@ fieldset legend {
   font-weight: bold;
   color: #aa9;
   padding: 0 0.5rem;
+}
+
+p {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+p label + input {
+  padding: 0.5rem;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  width: 100%;
+}
+
+p:has(> label + input:invalid:not([hidden], [type="file"]))::before {
+  content: "✖";
+  color: red;
+}
+
+p:has(> label + input:valid:not([hidden], [type="file"]))::before {
+  content: "✓";
+  color: green;
+}
+
+input {
+  color: #333;
+  background-color: rgba(230, 255, 255, 0.6);
+}
+
+input[required] {
+  background-color: rgba(255, 230, 255, 0.6);
+}
+
+input::placeholder {
+  color: #bbb;
+}
+
+input:invalid {
+  background-color: rgba(255, 230, 240, 0.6);
+}
+
+input:valid {
+  background-color: rgba(230, 255, 240, 0.6);
+}
+
+.checkbox-group p {
+  display: inline-block;
+  min-width: 8.7rem;
+}
+
+.checkbox-group label {
+  display: inline-block;
+  min-width: 9.7rem;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.feedback-box {
+  display: block;
+  background-color: rgba(255, 255, 250, 0.7);
+  border: 2px solid #aa9;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  min-height: 10rem;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
 }

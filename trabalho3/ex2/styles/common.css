@@ -60,7 +60,7 @@ h2 {
 .content-layout {
   margin: 0 auto;
   max-width: 100ch;
-  padding: 3rem 0;
+  margin-bottom: 3rem;
 }
 footer {
   position: absolute;

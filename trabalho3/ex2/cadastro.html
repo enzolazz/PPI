@@ -29,6 +29,7 @@
             <input
               type="text"
               name="userName"
+              placeholder="João da Silva"
               autofocus
               minlength="2"
               maxlength="50"
@@ -37,24 +38,35 @@
           </p>
           <p>
             <label>E-mail: </label>
-            <input type="email" name="userEmail" required>
+            <input
+              type="email"
+              name="userEmail"
+              placeholder="joaodasilva@exemplo.com"
+              required
+            >
           </p>
           <p>
             <label>CPF: </label>
             <input
               type="text"
               name="userCPF"
-              required
+              placeholder="111.111.111-11"
               pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+              required
             >
           </p>
           <p>
             <label>Idade: </label>
-            <input type="number" name="userAge" required>
+            <input type="number" name="userAge" placeholder="20" required>
           </p>
           <p>
             <label>Telefone: </label>
-            <input type="tel" name="userCel" required>
+            <input
+              type="tel"
+              name="userCel"
+              placeholder="99 99999-9999"
+              required
+            >
           </p>
           <p>
             <label>Data de nascimento: </label>
@@ -114,31 +126,48 @@
 
           <p>
             <label>CEP: </label>
-            <input type="text" name="userCEP" required>
+            <input type="text" name="userCEP" placeholder="11111-111" required>
           </p>
 
-          <label>Tipo de logradouro:</label>
-          <select name="estado" required>
-            <option value="">Selecione</option>
-            <option value="rua">Rua</option>
-            <option value="avenida">Avenida</option>
-            <option value="praca">Praça</option>
-            <option value="jardim">Jardim</option>
-            <option value="alameda">Alameda</option>
-          </select>
+          <p>
+            <label>Tipo de logradouro:</label>
+            <select name="estado" required>
+              <option value="">Selecione</option>
+              <option value="rua">Rua</option>
+              <option value="avenida">Avenida</option>
+              <option value="praca">Praça</option>
+              <option value="jardim">Jardim</option>
+              <option value="alameda">Alameda</option>
+            </select>
+          </p>
 
           <p>
             <label>Logradouro: </label>
-            <input type="text" name="userStreet" required>
+            <input
+              type="text"
+              name="userStreet"
+              placeholder="Av. João Naves de Ávila"
+              required
+            >
           </p>
 
           <p>
             <label>Bairro: </label>
-            <input type="text" name="userNeighbor" required>
+            <input
+              type="text"
+              name="userNeighbor"
+              placeholder="Santa Mônica"
+              required
+            >
           </p>
           <p>
             <label>Cidade: </label>
-            <input type="text" name="userCity" required>
+            <input
+              type="text"
+              name="userCity"
+              placeholder="Uberlândia"
+              required
+            >
           </p>
           <p>
             <label>Estado: </label>
@@ -154,7 +183,7 @@
         <fieldset>
           <legend>Informações Opcionais</legend>
 
-          <section>
+          <section class="checkbox-group">
             <p>Filmes favoritos:</p>
 
             <p>
@@ -178,7 +207,7 @@
             </p>
           </section>
 
-          <section>
+          <section class="checkbox-group">
             <p>Informática:</p>
 
             <p>
@@ -202,7 +231,7 @@
             </p>
           </section>
 
-          <section>
+          <section class="checkbox-group">
             <p>Jogos favoritos:</p>
 
             <p>
@@ -226,7 +255,7 @@
             </p>
           </section>
 
-          <section>
+          <section class="checkbox-group">
             <p>Livros favoritos:</p>
 
             <p>
@@ -250,7 +279,7 @@
             </p>
           </section>
 
-          <section>
+          <section class="checkbox-group">
             <p>Roupas preferidas:</p>
 
             <p>
@@ -276,7 +305,12 @@
 
           <p>
             <label>Informações complementares:</label>
-            <textarea name="userExtra" rows="" cols=""></textarea>
+            <textarea
+              class="feedback-box"
+              name="userExtra"
+              rows=""
+              cols=""
+            ></textarea>
           </p>
           <p>
             <label>Enviar foto:</label>
