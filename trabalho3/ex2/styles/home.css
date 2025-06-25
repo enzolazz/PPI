@@ -1,0 +1,9 @@
+p {
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  text-align: justify;
+}
+
+section > p:first-of-type {
+  text-indent: 2rem;
+}

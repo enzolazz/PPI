@@ -1,0 +1,20 @@
+#gallery {
+  position: relative;
+  text-align: center;
+}
+
+.images-row {
+  text-align: center;
+  margin: 5rem 0;
+}
+
+.images-row img {
+  display: inline-block;
+  margin: 0 1rem;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.images-row img:hover {
+  transform: scale(1.5);
+}

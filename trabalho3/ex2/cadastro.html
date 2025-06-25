@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro - Clínica ABC Health</title>
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/cadastro.css">
+  </head>
+
+  <body>
+    <header>
+      <h1>Clínica ABC Health</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="content-layout">
+      <h2>Cadastro de Paciente</h2>
+      <form action="cadastraCliente.php" method="post">
+        <fieldset>
+          <legend>Informações Pessoais</legend>
+          <p>
+            <label>Nome: </label>
+            <input
+              type="text"
+              name="userName"
+              autofocus
+              minlength="2"
+              maxlength="50"
+              required
+            >
+          </p>
+          <p>
+            <label>E-mail: </label>
+            <input type="email" name="userEmail" required>
+          </p>
+          <p>
+            <label>CPF: </label>
+            <input
+              type="text"
+              name="userCPF"
+              required
+              pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+            >
+          </p>
+          <p>
+            <label>Idade: </label>
+            <input type="number" name="userAge" required>
+          </p>
+          <p>
+            <label>Telefone: </label>
+            <input type="tel" name="userCel" required>
+          </p>
+          <p>
+            <label>Data de nascimento: </label>
+            <input type="date" name="userBirth">
+          </p>
+
+          <p>
+            <label
+              >Sexo:
+              <select name="userSex">
+                <option value="" disabled selected>Selecione</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+              </select>
+            </label>
+          </p>
+
+          <p>
+            <label for="userNationality">Nacionalidade: </label>
+            <input
+              type="text"
+              name="userNationality"
+              value="Brasileiro(a)"
+              readonly
+            >
+          </p>
+
+          <p>
+            <label for="userIncome" hidden>Renda: </label>
+            <input type="range" name="userIncome" hidden>
+          </p>
+
+          <p>Estado Civil:</p>
+          <div>
+            <input type="radio" name="maritalStatus" value="solteiro">
+            <label for="solteiro">Solteiro</label>
+          </div>
+
+          <div>
+            <input type="radio" name="maritalStatus" value="casado">
+            <label for="casado">Casado</label>
+          </div>
+
+          <div>
+            <input type="radio" name="maritalStatus" value="divorciado">
+            <label for="divorciado">Divorciado</label>
+          </div>
+
+          <div>
+            <input type="radio" name="maritalStatus" value="viuvo">
+            <label for="Viúvo">Viúvo</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Endereço</legend>
+
+          <p>
+            <label>CEP: </label>
+            <input type="text" name="userCEP" required>
+          </p>
+
+          <label>Tipo de logradouro:</label>
+          <select name="estado" required>
+            <option value="">Selecione</option>
+            <option value="rua">Rua</option>
+            <option value="avenida">Avenida</option>
+            <option value="praca">Praça</option>
+            <option value="jardim">Jardim</option>
+            <option value="alameda">Alameda</option>
+          </select>
+
+          <p>
+            <label>Logradouro: </label>
+            <input type="text" name="userStreet" required>
+          </p>
+
+          <p>
+            <label>Bairro: </label>
+            <input type="text" name="userNeighbor" required>
+          </p>
+          <p>
+            <label>Cidade: </label>
+            <input type="text" name="userCity" required>
+          </p>
+          <p>
+            <label>Estado: </label>
+            <input
+              type="text"
+              name="userState"
+              placeholder="Minas Gerais"
+              required
+            >
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Informações Opcionais</legend>
+
+          <section>
+            <p>Filmes favoritos:</p>
+
+            <p>
+              <input type="checkbox" name="userMovies[]" value="matrix">
+              <label for="matrix">Matrix</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userMovies[]" value="lor">
+              <label for="lor">O Senhor dos Anéis</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userMovies[]" value="hp">
+              <label for="hp">Harry Potter</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userMovies[]" value="interestelar">
+              <label for="interestelar">Interestelar</label>
+            </p>
+          </section>
+
+          <section>
+            <p>Informática:</p>
+
+            <p>
+              <input type="checkbox" name="userIT[]" value="py">
+              <label for="py">Python</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userIT[]" value="ntw">
+              <label for="ntw">Redes</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userIT[]" value="hw">
+              <label for="hw">Hardware</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userIT[]" value="sec">
+              <label for="sec">Segurança</label>
+            </p>
+          </section>
+
+          <section>
+            <p>Jogos favoritos:</p>
+
+            <p>
+              <input type="checkbox" name="userGames[]" value="minecraft">
+              <label for="minecraft">Minecraft</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userGames[]" value="fifa">
+              <label for="fifa">FIFA</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userGames[]" value="chess">
+              <label for="chess">Xadrez</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userGames[]" value="cod">
+              <label for="cod">Call of Duty</label>
+            </p>
+          </section>
+
+          <section>
+            <p>Livros favoritos:</p>
+
+            <p>
+              <input type="checkbox" name="userBooks[]" value="dcBook">
+              <label for="dcBook">Dom Casmurro</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userBooks[]" value="hpBook">
+              <label for="hpBook">Harry Potter</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userBooks[]" value="lpBook">
+              <label for="lpBook">O Pequeno Príncipe</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userBooks[]" value="interestelar">
+              <label for="interestelar">Interestelar</label>
+            </p>
+          </section>
+
+          <section>
+            <p>Roupas preferidas:</p>
+
+            <p>
+              <input type="checkbox" name="userClothes[]" value="shirt">
+              <label for="shirt">Camiseta</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userClothes[]" value="jeans">
+              <label for="jeans">Jeans</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userClothes[]" value="dress">
+              <label for="dress">Vestido</label>
+            </p>
+
+            <p>
+              <input type="checkbox" name="userClothes[]" value="sweater">
+              <label for="sweater">Jaqueta</label>
+            </p>
+          </section>
+
+          <p>
+            <label>Informações complementares:</label>
+            <textarea name="userExtra" rows="" cols=""></textarea>
+          </p>
+          <p>
+            <label>Enviar foto:</label>
+            <input
+              type="file"
+              name="userPhoto"
+              accept=".jpg,.jpeg,.png,.gif,image/jpeg,image/png,image/gif"
+            >
+          </p>
+        </fieldset>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </main>
+  </body>
+</html>

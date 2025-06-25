@@ -5,83 +5,81 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #4b6cb7, #182848);
-  color: #f0f0f0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #2e3440, #1e222a);
+  color: #e5e9f0;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   padding: 20px;
+  text-align: center;
 }
 
-.container {
-  background-color: rgba(24, 40, 72, 0.85);
+main {
+  background-color: rgba(46, 52, 64, 0.95);
   padding: 40px 60px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  max-width: 480px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  max-width: 500px;
   width: 100%;
 }
 
-/* Cabeçalho principal */
 h1 {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   margin-bottom: 16px;
-  color: #ffd700;
-  text-shadow: 0 2px 6px #000;
+  color: #d7e2df;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* Parágrafos */
 p {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   margin-bottom: 24px;
-  line-height: 1.5;
+  line-height: 1.6;
+  color: #d8dee9;
 }
 
-/* Botões e links estilo botão */
 .btn {
   display: inline-block;
-  padding: 12px 30px;
-  font-size: 1.1rem;
+  padding: 12px 28px;
+  font-size: 1rem;
   font-weight: 600;
-  color: #182848;
-  background-color: #ffd700;
+  color: #2e3440;
+  background-color: #d7e2df;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   margin-top: 20px;
 }
 
 .btn:hover {
-  background-color: #ffea00;
-  color: #000;
+  background-color: #a3d2ca;
+  color: #1e222a;
 }
 
-/* Estilo para a lista de trabalhos */
-.lista-trabalhos {
-  list-style-type: none;
-  padding-left: 0;
-  margin-bottom: 30px;
-  text-align: left;
+.lista-refs {
+  list-style: none;
+  margin: 30px 0;
+  text-align: center;
 }
 
-.lista-trabalhos li {
+.lista-refs li {
   margin-bottom: 14px;
 }
 
-.lista-trabalhos a {
-  color: #ffd700;
+.lista-refs a {
+  color: #d7e2df;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: color 0.3s ease;
 }
 
-.lista-trabalhos a:hover,
-.lista-trabalhos a:focus {
-  color: #ffea00;
+.lista-refs a:hover,
+.lista-refs a:focus {
+  color: #a3d2ca;
   text-decoration: underline;
 }
