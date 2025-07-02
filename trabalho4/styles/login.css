@@ -34,7 +34,10 @@ input:focus {
   box-shadow: 0 0 5px gray;
 }
 
-button .material-symbols-outlined {
+button p,
+button span {
+  display: inline-block;
+  margin: 0;
   vertical-align: middle;
-  font-size: 1.4rem;
+  padding: 0.6rem 1px;
 }
