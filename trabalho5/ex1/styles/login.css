@@ -1,0 +1,42 @@
+body {
+  background-color: lightgray;
+  font-family: Helvetica, sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+main {
+  max-width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 0 10px gray;
+  border-radius: 0.5rem;
+  font-size: large;
+  color: gray;
+}
+
+input,
+button {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid gray;
+  margin: 1rem 0;
+  font-size: medium;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 5px gray;
+}
+
+button span {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+  padding: 0.6rem 1px;
+}
