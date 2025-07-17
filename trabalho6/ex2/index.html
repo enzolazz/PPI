@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Depurando JavaScript no Navegador</title>
+  </head>
+
+  <body>
+    <h1>Tratando Eventos – Tecle F12 para depurar</h1>
+
+    <input type="text" name="nome">
+    <button type="button">Digite seu nome e clique aqui</button>
+    <p></p>
+
+    <script>
+      const botao = document.querySelector("button");
+      botao.onclick = function () {
+        const campoNome = document.querySelector("input");
+        const parSaida = document.querySelector("p");
+
+        parSaida.textContent = `Obrigado, ${campoNome.value}!`;
+      };
+    </script>
+
+    <img
+      src="images/console_breakpoint.png"
+      alt="Imagem do console do navegador com um ponto de interrupção"
+    >
+  </body>
+</html>

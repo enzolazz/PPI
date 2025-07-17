@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Depurando JavaScript no Navegador</title>
+  </head>
+
+  <body>
+    <h1>Calcular peso ideal conforme sexo</h1>
+
+    <div>
+      <label for="altura">Digite seu nome:</label>
+      <input
+        type="text"
+        id="altura"
+        name="altura"
+        placeholder="Digite sua altura (em centimetros)"
+      >
+    </div>
+    <div>
+      <p>Selecione seu sexo:</p>
+      <label>
+        <input type="radio" name="sexo" value="masculino">
+        Masculino
+      </label>
+
+      <label>
+        <input type="radio" name="sexo" value="feminino">
+        Feminino
+      </label>
+    </div>
+
+    <button type="button">Complete as informacoes e clique aqui.</button>
+
+    <p></p>
+
+    <script>
+      const botao = document.querySelector("button");
+      botao.onclick = function () {
+        const parSaida = document.querySelector("p");
+
+        const campoAltura = document.querySelector("input");
+        const campoSexo = document.querySelector("input[name='sexo']:checked");
+
+        let altura = parseInt(campoAltura.value);
+        let constante = campoSexo.value === "masculino" ? 0.75 : 0.67;
+        const pesoIdeal = 52 + constante * (altura - 152.4);
+
+        parSaida.textContent = `Peso ideal: ${pesoIdeal}!`;
+      };
+    </script>
+
+    <img
+      src="images/console_breakpoint.png"
+      alt="Imagem do console do navegador com um ponto de interrupção"
+    >
+  </body>
+</html>

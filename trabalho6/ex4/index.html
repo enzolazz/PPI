@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <title>Explicação – Tipos de Nós na DOM Tree</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Explicando a saída do código – Slide 38</h1>
+
+    <p>
+      O código percorre os nós filhos de <code>document.body</code> e exibe seus
+      tipos, além de verificar a instância do elemento
+      <code>&lt;input&gt;</code> com <code>instanceof</code>.
+    </p>
+
+    <h2>Saída produzida:</h2>
+    <pre>
+[object Text]
+[object HTMLHeadingElement]
+[object Text]
+[object HTMLInputElement]
+[object Text]
+[object Comment]
+[object Text]
+[object HTMLPreElement]
+[object Text]
+[object HTMLScriptElement]
+true
+true
+true
+true
+[object HTMLDocument]
+  </pre
+    >
+
+    <h2>Por que isso acontece?</h2>
+    <ul>
+      <li>
+        <strong><code>document.body.childNodes</code></strong> contém todos os
+        nós dentro da tag <code>&lt;body&gt;</code>, incluindo textos, elementos
+        e comentários.
+      </li>
+      <li>
+        Por isso vemos vários <code>[object Text]</code>, que são espaços ou
+        quebras de linha no HTML.
+      </li>
+      <li>
+        O <code>[object Comment]</code> aparece por causa do comentário
+        <code>&lt;!-- comentário --&gt;</code> no HTML.
+      </li>
+      <li>
+        Os demais (<code>HTMLHeadingElement</code>,
+        <code>HTMLInputElement</code>, etc.) são os próprios elementos HTML
+        presentes.
+      </li>
+    </ul>
+
+    <p>
+      O código faz várias verificações com o elemento
+      <code>&lt;input id="myInput"&gt;</code>:
+    </p>
+    <ul>
+      <li>
+        <code>input instanceof HTMLInputElement</code> → <strong>true</strong>
+      </li>
+      <li><code>input instanceof HTMLElement</code> → <strong>true</strong></li>
+      <li><code>input instanceof Element</code> → <strong>true</strong></li>
+      <li><code>input instanceof Node</code> → <strong>true</strong></li>
+      <li><code>input instanceof EventTarget</code> → <strong>true</strong></li>
+    </ul>
+
+    <p>
+      Isso demonstra que o elemento <code>&lt;input&gt;</code> herda de todas
+      essas classes, mostrando a hierarquia de tipos no DOM.
+    </p>
+
+    <p>
+      A última linha exibe <code>document.constructor.prototype</code>, que
+      resulta em <code>[object HTMLDocument]</code>, indicando o tipo raiz do
+      objeto <code>document</code>.
+    </p>
+
+    <p>
+      Em resumo, esse exemplo mostra como o DOM é composto por vários tipos de
+      nós (<code>Text</code>, <code>Comment</code>, <code>Element</code>), e
+      como os elementos HTML herdam propriedades e métodos através da cadeia de
+      protótipos.
+    </p>
+  </body>
+</html>
