@@ -1,9 +1,13 @@
 const subTitles = document.querySelectorAll("h2");
 
-for (let subtitle of subTitles) {
-  const content = subtitle.nextElementSibling;
+subTitles.forEach((subTitle) => {
+  const content = subTitle.nextElementSibling;
 
-  subtitle.onclick = () => {
+  subTitle.addEventListener("click", () => {
     content.style.display = "none";
-  };
-}
+  });
+
+  subTitle.addEventListener("dblclick", () => {
+    content.style.display = "block";
+  });
+});
