@@ -1,0 +1,64 @@
+body {
+  box-sizing: border-box;
+  height: 100vh;
+  margin: 0;
+  padding: 1rem 2rem;
+  background: linear-gradient(to bottom, #ffe1e8, #ffe7d1);
+}
+
+button {
+  background-color: #ffe7d1;
+  color: #333;
+  cursor: pointer;
+  width: 10rem;
+  height: 2rem;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d0f4d8;
+}
+
+.modal {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin: 0 0 1rem;
+}
+
+.modal-content .closeModal {
+  background-color: lightblue;
+  cursor: pointer;
+  width: 100%;
+  height: 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content .closeModal:hover {
+  background-color: #a6c2de;
+}
