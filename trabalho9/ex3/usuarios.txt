@@ -1,0 +1,2 @@
+user@nextmail.com;$2y$12$RHBG1JHv5KI1MieKLoJYDeo/rQ40CTG6rAoVgdc9G4jRrgGAgkcxa
+admin@admin.com;$2y$12$.opw3N4K1SlLj8ep39RSqO1m8oD8Zi923mipF2G62uu4QxgaaBoTO
