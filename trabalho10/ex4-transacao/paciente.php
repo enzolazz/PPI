@@ -1,10 +1,9 @@
 <?php
 
-class Cliente
+class Paciente
 {
   static function Create($pdo,
-    $nome, $cpf, $email, $senhaHash, $dataNascimento, $estadoCivil, $altura,
-    $cep, $logradouro, $bairro, $cidade) 
+    $nome, $sexo, $email, $peso, $altura, $tipoSanguineo)
   {
     try {
       $pdo->beginTransaction();
@@ -15,11 +14,11 @@ class Cliente
       // Uma exceção será lançada em caso de falha no prepare ou no execute.
       $stmt1 = $pdo->prepare(
         <<<SQL
-        INSERT INTO cliente (nome, cpf, email, senhaHash, dataNascimento, estadoCivil, altura)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO pessoa (nome, sexo, email)
+        VALUES (?, ?, ?)
         SQL
       );
-      $stmt1->execute([$nome, $cpf, $email, $senhaHash, $dataNascimento, $estadoCivil, $altura]);
+      $stmt1->execute([$nome, $sexo, $email]);
 
       // Inserção na tabela endereco_cliente
       // O id do novo cliente gerado automaticamente na inserção anterior 
@@ -27,14 +26,14 @@ class Cliente
       // para o campo id_cliente, que é chave estrangeira conectando o endereço
       // ao cliente da outra tabela.
       // Uma exceção será lançada em caso de falha no prepare ou no execute.
-      $idNovoCliente = $pdo->lastInsertId();
+      $idNovaPessoa = $pdo->lastInsertId();
       $stmt2 = $pdo->prepare(
         <<<SQL
-        INSERT INTO enderecoCliente (cep, logradouro, bairro, cidade, idCliente)
-        VALUES (?, ?, ?, ?, ?)
+        INSERT INTO paciente (peso, altura, tipoSanguineo, idPessoa)
+        VALUES (?, ?, ?, ?)
         SQL
       );
-      $stmt2->execute([$cep, $logradouro, $bairro, $cidade, $idNovoCliente]);
+      $stmt2->execute([$peso, $altura, $tipoSanguineo, $idNovaPessoa]);
 
       // Efetiva as operações
       $pdo->commit();
@@ -48,7 +47,7 @@ class Cliente
       throw $e;
     }
 
-    // retorna o Id do novo cliente criado
+    // retorna o Id da nova pessoa criado
     return $pdo->lastInsertId();
   }
 
@@ -59,15 +58,14 @@ class Cliente
     // pois nenhum parâmetro do usuário é utilizado na query SQL. 
     $stmt = $pdo->query(
       <<<SQL
-      SELECT cliente.id, nome, cpf, email, senhaHash, DATE_FORMAT(dataNascimento, "%d-%m-%Y") as dataNascimento, 
-        estadoCivil, altura, cep, logradouro, bairro, cidade
-      FROM cliente INNER JOIN enderecoCliente ON cliente.id = enderecoCliente.idCliente
+      SELECT paciente.idPessoa, nome, sexo, email, peso, altura, tipoSanguineo
+      FROM paciente INNER JOIN pessoa ON paciente.idPessoa = pessoa.id
       LIMIT 30
       SQL
     );
 
     // Resgata os dados dos clientes como um array de objetos
-    $arrayClientes = $stmt->fetchAll(PDO::FETCH_OBJ);
-    return $arrayClientes;
+    $arrayPessoas = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $arrayPessoas;
   }
 }
