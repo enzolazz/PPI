@@ -1,0 +1,3 @@
+b) As principais diferencas estao em um processo de "autenticacao". Ao enviar a requisicao HTTP via XMLHttpRequest, o script também envia um objetoJs que serve como autenticacao para liberar o autocomplete do CEP. No lado do PHP, existe a necessidade do tratamento do conteudo enviado por JSON.
+
+c) Content-type: application/json; Content-length: 63; Payload: {"cep":"38400-100","email":"fulano@mail.com","apikey":"123456"}. É o conteúdo enviado pela requisicao XMLHttpRequest para autenticar o usuário digitando o CEP, ou seja, é o próprio objetoJs enviado.
