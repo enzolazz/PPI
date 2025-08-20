@@ -1,0 +1,5 @@
+i. Status code: 200
+ii. application/json. Pois foi mudado no documento php com a funcao header(...)
+iii. O objeto do endereco do respectivo cep: {"rua":"Av Floriano","bairro":"Centro","cidade":"Uberl\u00e2ndia"}
+iv. openresty
+v. O metodo xhr.open envia os dados pela URL (fazendo uma query com a string da url) e nao pelo corpo. O cabecalho só é necessário quando há corpo na requisicao HTTP.

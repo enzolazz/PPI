@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Teste Ajax - onerror</title>
+  <style>
+    body {
+      font: 1.2rem Helvetica;
+      line-height: 1.5rem;
+      background-image: url("images/bg2.jpg");
+      background-size: cover;
+      margin: 0;
+    }
+
+    main {
+      width: 60%;
+      background-color: #fff;
+      border: 0.5px solid #ccc;
+      margin: 0;
+      padding: 2% 4%;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <label for="cep">Informe o CEP (38400-100 ou 38700-000)</label>
+    <input type="text" id="cep">
+    <span id="cidade"><span>
+  </main>
+
+  <script>
+    // Define a funcao que será chamada em cada tecla clicada no input.
+    function buscaCidade(cep) {
+      // Apenas verifica os CEP se estiver completo.
+      if (cep.length != 9) 
+        return;
+
+      // Cria o objeto XMLHttpRequest
+      let xhr = new XMLHttpRequest();
+
+      // Abre o script PHP com o método GET de forma assíncrona.
+      xhr.open("GET", "busca-cidade.php?cep=" + cep);
+
+      // Define a funcao que será realizada no retorno do servidor
+      xhr.onload = function () {
+        // Verificacao se o CEP foi encontrado: deve retornar status 200
+        if (xhr.status == 200)
+          // Acha o elemento com id cidade e insere a resposta encontrada no script PHP.
+          document.getElementById("cidade").textContent = xhr.responseText;
+        else {
+          // Nao encontrou CEP, portanto limpa o conteúdo do elemento cidade
+          document.getElementById("cidade").textContent = "";
+          // Loga no console o status, status textual e a resposta textual.
+          console.log(xhr.status, xhr.statusText, xhr.responseText);
+        }
+      };
+
+      // Define funcao de erro
+      xhr.onerror = function () {
+        console.log("Erro de rede");
+      };
+
+      // Envia a requisicao HTTP de forma assincrona.
+      xhr.send();
+    }
+
+    // Define o momento em que a funcao será chamada (no click de teclas no elemento input)
+    const inputCep = document.querySelector("#cep");
+    inputCep.onkeyup = () => buscaCidade(inputCep.value);
+  </script>
+
+</body>
+
+</html>

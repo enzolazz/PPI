@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Teste AJAX Simples</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.5rem;
+        background-image: url("images/bg2.jpg");
+        background-size: cover;
+        margin: 0;
+      }
+
+      main {
+        width: 60%;
+        background-color: #fff;
+        border: 0.5px solid #ccc;
+        margin: 0;
+        padding: 2% 4%;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Faculdade de Computação da UFU</h1>
+      <p>A Faculdade de Computação (FACOM) da Universidade...</p>
+      <p>No início dos anos 2000 foi criado na Faculdade...</p>
+      <button>Carregar mais conteúdo com Ajax</button>
+    </main>
+
+    <script>
+      function loadExtraContent() {
+        // Cria objeto XMLHttpRequest para iniciar a requisicao ajax
+        let xhr = new XMLHttpRequest();
+
+        // Configura a requisicao HTTP:
+        // 1. GET indica o método HTTP para buscar a informacao;
+        // 2. "conteudoAdicional.html" indica o arquivo a ser aberto;
+        // 3. True indica que a requisicao deve ser realizada de forma assincrona;
+        xhr.open("GET", "conteudoAdicional.html", true);
+
+        // Cria uma funcao callback que será realizada no momento
+        // que a resposta do servidor terminar de ser carregada.
+        xhr.onload = function () {
+          // Busca o elemento 'main' da página atual
+          const main = document.querySelector("main");
+
+          // Insere o conteúdo requisitado pelo método open no elemento 'main';
+          // Note que xrh.responseText acessa uma mensagem textual que foi solicitada anteriormente.
+          main.insertAdjacentHTML("beforeend", xhr.responseText);
+        };
+
+        // Envia a requisicao HTTP.
+        xhr.send();
+      }
+
+      // Acha o botao e adiciona o evento definido anteriormente.
+      const button = document.querySelector("button");
+      button.addEventListener("click", loadExtraContent);
+    </script>
+  </body>
+</html>

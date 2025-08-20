@@ -1,0 +1,18 @@
+c)
+i. Status Code 200 OK
+ii. text/html; charset=UTF-8 (Pois o script php nao definiu um Content-Type especifico, portanto, a resposta enviou o Content-Type padrao, que é o listado anteriormente)
+iii. Uberlândia
+iv. Server: openresty
+v. O metodo xhr.open envia os dados pela URL (fazendo uma query com a string da url) e nao pelo corpo. O cabecalho só é necessário quando há corpo na requisicao HTTP.
+
+
+d)
+i. Status Code 404 Not Found
+ii. text/html; charset=UTF-8 (Pois o script PHP nao definiu um Content-Type específico, portanto a resposta enviou o Content-Type padrao, que é o listado anteriormente)
+iii. 38400-500 is not available
+iv. Server: openresty
+v. O método xhr.open envia os dados pela URL (fazendo uma query com a string da URL) e não pelo corpo. O cabeçalho só é necessário quando há corpo na requisição HTTP.
+
+e) Status Code: 500 Internal Server Error. O corpo da resposta é vazio.
+
+f) O servidor inseriu um erro no lugar do elemento da cidade, retornando Status Code: 200 OK; O corpo da resposta agora é um código HTML indicando o erro que o servidor encontrou. A configuracao seria utíl em ambientes de desenvolvimento/debug. Jamais deve ser utilizada em producao.
