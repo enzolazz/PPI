@@ -1,63 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Encadeando requisições assíncronas</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1.5rem;
+        background-color: #ddd;
+        color: #555;
+        margin: 0;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <title>Encadeando requisições assíncronas</title>
-  <style>
-    body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      line-height: 1.5rem;
-      background-color: #ddd;
-      color: #555;
-      margin: 0;
-    }
+      main {
+        width: 60%;
+        margin: 0;
+        padding: 2% 4%;
+        background-color: #eee;
 
-    main {
-      width: 60%;
-      margin: 0;
-      padding: 2% 4%;
-      background-color: #eee;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
 
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+      h1 {
+        font-size: 5rem;
+        text-align: center;
+      }
+    </style>
+  </head>
 
-    h1 {
-      font-size: 5rem;
-      text-align: center;
-    }
-  </style>
-</head>
+  <body>
+    <main>
+      <h2>Temperatura Local: <span id="temp">...</span></h2>
+      <h2>Velocidade do Vento: <span id="wind">...</span></h2>
+    </main>
+    <script>
+      // OBS: A função não trata todos os erros
+      function buscaClimaLocal() {
+        // Faz uma requisição API com o método fetch
+        fetch("https://ipapi.co/json/")
+          .then((response) => response.json()) // Obtém a resposta e a converte em JSON
+          // Usa os dados da resposta (api relativa à localizacao) para chamar outra API de clima
+          // O fetch usa da latitude e longitude
+          .then((data) =>
+            fetch(
+              `https://api.open-meteo.com/v1/forecast?latitude=${data.latitude}&longitude=${data.longitude}&current_weather=true`,
+            ),
+          )
+          .then((response) => response.json()) // Novamente converte a resposta para JSON
+          .then((data) => {
+            // Pega o elemento HTML relativo à temperatura e insere a temperatura atual que veio da chamada da API
+            document.getElementById("temp").textContent =
+              data.current_weather.temperature + "°";
 
-<body>
+            // Pega o elemento HTML relativo ao vento e insere o vento atual que veio da chamada da API
+            document.getElementById("wind").textContent =
+              data.current_weather.windspeed + " km/h";
+          })
 
-  <main>
-    <h2>Temperatura Local: <span id="temp">...</span></h2>
-    <h2>Velocidade do Vento: <span id="wind">...</span></h2>
-  </main>
-  <script>
+          // faz um catch generico para erros de qualquer uma das requisicoes
+          .catch((error) => console.log(error));
+      }
 
-    // OBS: A função não trata todos os erros
-    function buscaClimaLocal() {
-      fetch('https://ipapi.co/json/')
-        .then(response => response.json())
-        .then(data => fetch(`https://api.open-meteo.com/v1/forecast?latitude=${data.latitude}&longitude=${data.longitude}&current_weather=true`))
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById("temp").textContent = data.current_weather.temperature + '°';
-          document.getElementById("wind").textContent = data.current_weather.windspeed + ' km/h';
-        })
-        .catch(error => console.log(error));
-    }
-
-    window.onload = function () {
-      buscaClimaLocal();
-    }
-  </script>
-
-</body>
-
+      window.onload = function () {
+        buscaClimaLocal();
+      };
+    </script>
+  </body>
 </html>
