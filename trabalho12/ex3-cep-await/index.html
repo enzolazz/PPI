@@ -57,7 +57,11 @@
         try {
           // Realiza uma requisição assíncrona para o arquivo PHP,
           // enviando o CEP como parâmetro na URL.
-          const response = await fetch("busca-endereco.php?cep=" + cep);
+          const response = await fetch("busca-endereco-bd.php?cep=" + cep);
+          // response.status = 200
+          // response.body nao contém os dados do endereco, a propriedade
+          // é um ReadableStrem, ou seja, precisa ser consumida usando um método
+          // para transformá-la em JSON.
 
           // Caso a resposta não seja bem-sucedida (status fora da faixa 200-299),
           // obtém o texto de erro retornado pelo servidor e lança uma exceção.
