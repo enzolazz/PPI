@@ -48,23 +48,19 @@
     </div>
 
     <script>
-
       function buscaEndereco(cep) {
-
         if (cep.length != 9) return;
         let form = document.querySelector("form");
 
-        console.log(cep);
-        let formData = new FormData();
-        formData.append("cep", cep);
+        let formData = new FormData(form);
 
-        const options {
+        const options = {
           method: "POST",
           body: formData,
-        }
+        };
 
         fetch("busca-endereco.php", options)
-          .then(response => {
+          .then((response) => {
             if (!response.ok) {
               // A requisição finalizou com sucesso a nível de rede,
               // porém o servidor retornou um código de status
@@ -85,25 +81,25 @@
             // do próximo then receberá o resultado e será executada.
             return response.json(); // Atenção para o 'return' aqui
           })
-          .then(endereco => {
+          .then((endereco) => {
             // utiliza os dados para preencher o formulário
             form.rua.value = endereco.rua;
             form.bairro.value = endereco.bairro;
             form.cidade.value = endereco.cidade;
           })
-          .catch(error => {
+          .catch((error) => {
             // Ocorreu um erro na comunicação com o servidor ou
             // no processamento da requisição no PHP, que pode não
             // ter retornado uma string JSON válida.
             form.reset();
-            console.error('Falha inesperada: ' + error);
+            console.error("Falha inesperada: " + error);
           });
       }
 
       window.onload = function () {
         const inputCep = document.querySelector("#cep");
         inputCep.onkeyup = () => buscaEndereco(inputCep.value);
-      }
+      };
     </script>
   </body>
 </html>
