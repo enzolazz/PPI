@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <title>Cotações de Ações</title>
+  </head>
+  <body>
+    <h1>Consultar Cotações</h1>
+    <form id="form">
+      <label>Ação 1: <input type="text" id="acao1" required>/></label><br>
+      <label>Ação 2: <input type="text" id="acao2" required>/></label><br>
+      <label>Ação 3: <input type="text" id="acao3" required>/></label><br>
+      <button type="submit">Buscar</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+      const apiKey = "UJ7HEX0X9SHH05VL";
+
+      async function buscaCotacao(simbolo) {
+        const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${simbolo}&apikey=${apiKey}`;
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("Erro na requisição");
+        const data = await response.json();
+        return {
+          simbolo,
+          preco: data["Global Quote"]["05. price"],
+        };
+      }
+
+      document.getElementById("form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const simbolos = [
+          document.getElementById("acao1").value,
+          document.getElementById("acao2").value,
+          document.getElementById("acao3").value,
+        ];
+
+        try {
+          const resultados = await Promise.all(simbolos.map(buscaCotacao));
+          document.getElementById("resultado").innerHTML = resultados
+            .map((r) => `Cotação de ${r.simbolo}: R$ ${r.preco}`)
+            .join("<br>");
+        } catch (err) {
+          document.getElementById("resultado").innerText =
+            "Erro: " + err.message;
+        }
+      });
+    </script>
+  </body>
+</html>
