@@ -50,14 +50,11 @@
 
     <script>
       async function buscaEndereco(cep) {
-        // Normaliza o CEP removendo caracteres não numéricos
         cep = cep.replace(/\D/g, "");
 
-        // Verifica se o CEP possui exatamente 8 dígitos numéricos
         if (cep.length !== 8) return;
 
         try {
-          // Faz a requisição à API ViaCEP, pedindo o retorno em JSON
           const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
 
           if (!response.ok) {
@@ -73,19 +70,16 @@
 
           const endereco = await response.json();
 
-          // Caso o ViaCEP retorne erro (ex.: CEP inexistente)
           if (endereco.erro) {
             console.error("CEP não encontrado.");
             return;
           }
 
-          // Seleciona o formulário
           const form = document.querySelector("form");
 
-          // Preenche os campos com os dados retornados pelo ViaCEP
-          form.rua.value = endereco.logradouro ?? "";
-          form.bairro.value = endereco.bairro ?? "";
-          form.cidade.value = endereco.localidade ?? "";
+          form.rua.value = endereco.logradouro;
+          form.bairro.value = endereco.bairro;
+          form.cidade.value = endereco.localidade;
         } catch (e) {
           console.error("Erro ao buscar endereço:", e);
         }
