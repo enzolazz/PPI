@@ -91,30 +91,32 @@
       `;
       }
 
-      document.getElementById("form").addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const simbolos = [
-          document.getElementById("acao1").value,
-          document.getElementById("acao2").value,
-          document.getElementById("acao3").value,
-        ];
+      document
+        .getElementById("form-acoes")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const simbolos = [
+            document.getElementById("acao1").value,
+            document.getElementById("acao2").value,
+            document.getElementById("acao3").value,
+          ];
 
-        try {
-          const acao1 = buscaCotacao(simbolos[0]);
-          const acao2 = buscaCotacao(simbolos[1]);
-          const acao3 = buscaCotacao(simbolos[2]);
+          try {
+            const acao1 = buscaCotacao(simbolos[0]);
+            const acao2 = buscaCotacao(simbolos[1]);
+            const acao3 = buscaCotacao(simbolos[2]);
 
-          const resultados = await Promisse.all([acao1, acao2, acao3]);
-          document.getElementById("resultado").innerHTML = resultados
-            .map(criarCard)
-            .join("");
-        } catch (err) {
-          console.error(err);
-          document.getElementById("resultado").innerHTML = `
+            const resultados = await Promisse.all([acao1, acao2, acao3]);
+            document.getElementById("resultado").innerHTML = resultados
+              .map(criarCard)
+              .join("");
+          } catch (err) {
+            console.error(err);
+            document.getElementById("resultado").innerHTML = `
           <div class="alert alert-danger">Erro ao buscar cotações.</div>
         `;
-        }
-      });
+          }
+        });
     </script>
   </body>
 </html>
