@@ -54,13 +54,11 @@
         if (cep.length != 9) return;
         let form = document.querySelector("form");
 
-        let formData = new FormData();
-        formData.append("cep", cep);
+        let formData = new FormData(form);
 
         const options {
           method: "POST",
           body: formData,
-
         }
 
         fetch("busca-endereco.php", options)
