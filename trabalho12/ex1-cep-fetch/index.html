@@ -54,7 +54,9 @@
         if (cep.length != 9) return;
         let form = document.querySelector("form");
 
-        let formData = new FormData(form);
+        console.log(cep);
+        let formData = new FormData();
+        formData.append("cep", cep);
 
         const options {
           method: "POST",
