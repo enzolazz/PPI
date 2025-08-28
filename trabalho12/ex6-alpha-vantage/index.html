@@ -46,7 +46,7 @@
     </div>
 
     <script>
-      const apiKey = "WJ6YRKMG0VRQFRVQ";
+      const apiKey = "2XDTLW0H0W2IJ3W0";
 
       async function buscaCotacao(simbolo) {
         const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${simbolo}&apikey=${apiKey}`;
@@ -96,9 +96,9 @@
         .addEventListener("submit", async (e) => {
           e.preventDefault();
           const simbolos = [
-            document.getElementById("acao1").value,
-            document.getElementById("acao2").value,
-            document.getElementById("acao3").value,
+            document.getElementById("acao1").value.trim(),
+            document.getElementById("acao2").value.trim(),
+            document.getElementById("acao3").value.trim(),
           ];
 
           try {
