@@ -1,5 +1,5 @@
 <?php
-require "sessionVerification.php";
+require 'sessionVerification.php';
 session_start();
 exitWhenNotLoggedIn();
 ?>
@@ -77,7 +77,14 @@ exitWhenNotLoggedIn();
     <main>
       <h3>Alteração de senha</h3>
       <form class="row g-3" action="altera-senha.php" method="POST">
-        
+
+        <!--
+          Forca um token a ser gerado no servidor como variável de sessao, que
+          serve para validar e autenticar a requisicao do usuário, impedindo ataques CSRF.
+          A ideia é que ele seja enviado junto ao formulário, onde o servidor recebe e
+          verifica se o token é o mesmo salvo no cookie, evitando que um atacante force
+          que o usuário envie requisicoes via CSRF.
+        -->
         <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>">
 
         <div class="col-sm-12">

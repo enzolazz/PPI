@@ -1,9 +1,12 @@
 <?php
 
-require "conexaoMysql.php";
-require "sessionVerification.php";
+// Importa as chamadas
+require 'conexaoMysql.php';
+require 'sessionVerification.php';
 
+// Inicia sessao
 session_start();
+// Chama funcao que verifica sessao
 exitWhenNotLoggedIn();
 $pdo = mysqlConnect();
 
